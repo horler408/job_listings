@@ -1,0 +1,22 @@
+{
+  "name": "job_listings",
+  "version": "1.0.0",
+  "description": "<img src=\"https://github.com/horler408/job_listings_api/blob/main/assets/desktop-preview.jpg\" />",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horler408/job_listings_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/horler408/job_listings_api/issues"
+  },
+  "homepage": "https://github.com/horler408/job_listings_api#readme",
+  "dependencies": {
+    "spinkit": "^2.0.1"
+  }
+}
