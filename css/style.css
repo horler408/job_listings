@@ -258,16 +258,16 @@ body {
   }
   /* Filter Forms */
   .search_form {
-    right: 50px;
-    width: 30%;
+    right: 0;
+    width: 40%;
     top: 130px;
     height: 40px;
     margin-bottom: 10px;
   }
   .search_form input {
-    width: 70%;
+    width: 60%;
     font-size: 1.2rem;
-    margin: 0;
+    margin: 10px;
   }
   .search_form button {
     width: 20%;
@@ -325,17 +325,17 @@ body {
 
   .top {
     color: hsl(180, 29%, 50%);
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   .middle {
     color: hsl(180, 29%, 50%);
-    margin: 5px 0;
+    margin: 10px 0;
     font-weight: bold;
   }
   .bottom {
     color: grey;
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   .new,

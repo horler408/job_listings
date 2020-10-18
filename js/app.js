@@ -9,7 +9,10 @@ page=1
 //Accessing DOM
 const count = document.querySelector('.count');
 const cardContainer = document.querySelector('.main__cards');
-const preloader = document.querySelector('.preloader')
+const preloader = document.querySelector('.preloader');
+const form = document.querySelector('.search_form');
+const search = document.getElementById('search');
+const select = document.getElementById('select');
 
 
 //Date
@@ -17,15 +20,22 @@ let date = new Date().getTime()
 console.log(date);
 
 const cors = 'https://cors-anywhere.herokuapp.com/'
-const BASE_URL = `${cors}https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json`
+let BASE_URL = `${cors}https://jobs.github.com/positions.json?markdown=true`
+
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault()
+//   BASE_URL = `${cors}https://jobs.github.com/positions.json?markdown=true&location=${search.value}`
+// })
 
 fetch(BASE_URL)
 .then(res => res.json())
 .then(data => {
     console.log(data);
-    let jobs = data.slice(0, 10)
+    //let jobs = data.slice(0, 10)
+    let jobs = data
 
     displayItems(jobs)
+    filterSelect(jobs)
     count.innerHTML = `${data.length} jobs`
 })
 .catch(e => console.log(e))
@@ -71,6 +81,24 @@ var toggleDetails = () => {
       })
     })
 }
+
+const filterSelect = (jobItems) => {
+  select.addEventListener("change", (e) => {
+    const type = e.currentTarget.value;
+    const jobType = jobItems.filter((jobItem) => {
+      if (jobItem.type === type) {
+        return jobItem;
+      }
+    });
+    if (type === "") {
+      displayItems(jobItems);
+      count.textContent = `${jobItems.length} jobs found!`;
+    } else {
+      displayItems(jobType);
+      count.textContent = `${jobType.length} jobs found!`;
+    }
+  });
+};
 
 var getDays = (postDate) => {
   const today = new Date().toLocaleDateString()
