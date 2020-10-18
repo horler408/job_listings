@@ -74,7 +74,7 @@ var toggleDetails = () => {
 
 var getDays = (postDate) => {
   const today = new Date().toLocaleDateString()
-  const date = postDate.toLocaleDateString()
+  const date = new Date(postDate).toLocaleDateString()
   return today - date
 }
 
