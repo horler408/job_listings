@@ -271,7 +271,7 @@ body {
 
 @media only screen and (min-width: 576px) {
   .main {
-    height: 100vh;
+    min-height: 100vh;
     padding: 40px 80px;
   }
   /* Filter Forms */
