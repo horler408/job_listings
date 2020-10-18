@@ -1,12 +1,3 @@
-/*Parameters
-description — A search term, such as "ruby" or "java". This parameter is aliased to search.
-location — A city name, zip code, or other location search term.
-lat — A specific latitude. If used, you must also send long and must not send location.
-long — A specific longitude. If used, you must also send lat and must not send location.
-full_time — If you want to limit results to full time positions set this parameter to 'true'.
-page=1
-*/
-//Accessing DOM
 const count = document.querySelector('.count');
 const cardContainer = document.querySelector('.main__cards');
 const preloader = document.querySelector('.preloader');
@@ -20,12 +11,7 @@ let date = new Date().getTime()
 console.log(date);
 
 const cors = 'https://cors-anywhere.herokuapp.com/'
-let BASE_URL = `${cors}https://jobs.github.com/positions.json?markdown=true`
-
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault()
-//   BASE_URL = `${cors}https://jobs.github.com/positions.json?markdown=true&location=${search.value}`
-// })
+let BASE_URL = `${cors}https://jobs.github.com/positions.json?page=2&markdown=true`
 
 fetch(BASE_URL)
 .then(res => res.json())
@@ -37,7 +23,7 @@ fetch(BASE_URL)
     displayItems(jobs)
     filterSelect(jobs)
     filterSearch(jobs)
-    count.innerHTML = `${data.length} jobs found!`
+    count.innerHTML = `${data.length} jobs`
 })
 .catch(e => console.log(e))
 
