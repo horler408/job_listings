@@ -97,20 +97,22 @@ const filterSelect = (jobItems) => {
   });
 };
 
+
 var filterSearch = (searchItems) => {
   form.addEventListener("submit", (e) => {
-    const location = e.currentTarget.value.toLowerCase();
+    e.preventDefault()
+    const location = search.value.toLowerCase();
     const jobLocation = searchItems.filter((searchItem) => {
-      if (searchItem.location.toLowerCase().contains(location)) {
+      if (searchItem.location.toLowerCase().includes(location)) {
         return searchItem;
       }
     });
     if (location === "") {
       displayItems(searchItems);
-      search.value = "";
+      count.textContent = `${searchItems.length} jobs found!`;
     } else {
       displayItems(jobLocation);
-      count.textContent = "";
+      count.textContent = `${jobLocation.length} jobs found!`;
     }
   });
 };
